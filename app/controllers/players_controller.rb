@@ -4,13 +4,26 @@ class PlayersController < ApplicationController
   # GET /players or /players.json
   def index
     @players = Player.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Player id: #{@players.count} ", template: "players/index.html.erb"  
+      end
+    end
   end
 
   # GET /players/1 or /players/1.json
   def show
+    @player = Player.find(params[:id])
     @notable = @player
-    @notes = @notable.notes
+    # @notes = @notable.notes
     @note = Note.new
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Player id: #{@player.id} ", template: "players/player.html.erb"
+      end
+    end
   end
 
   # GET /players/new

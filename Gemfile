@@ -56,5 +56,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'paper_trail', '~> 10.3', '>= 10.3.1'
 gem 'devise'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 
 

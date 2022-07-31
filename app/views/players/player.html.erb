@@ -1,0 +1,29 @@
+PDF generation data:
+<%= Time.zone.now %>
+
+<p>
+  <strong>ID:</strong>
+  <%= @player.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @player.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @player.email %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @player.contact %>
+</p>
+
+<% if @player.date_of_birth.present? %>
+<p>
+  <strong>Date_of_birth:</strong>
+  <%= formatted_date(@player.date_of_birth) %>
+</p>
+<% end %>

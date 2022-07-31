@@ -1,9 +1,7 @@
 class Player < ApplicationRecord
     # has_paper_trail on: [:update, :destroy], only: [:first_name, :last_name]
     # has_paper_trail
-
-    attr_accessor :content
-    has_many :notes, as: :notable
+    has_many :notes, as: :notable, dependent: :destroy
 
     scope :visible, lambda {where(:email => true)}
     scope :invisible, lambda {where(:email => false)}

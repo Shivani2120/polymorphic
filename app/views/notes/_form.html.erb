@@ -1,7 +1,7 @@
 <%= form_for [@notable, @note] do |f| %>
     <div class="field">
     <P>content:</p>
-    <%= f.text_area :content, rows: 8 %>
+    <%= f.text_area :content, rows: 2, cols: 30 %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -2,7 +2,6 @@ class NotesController < ApplicationController
   before_action :load_notable
   
   def index
-    # @notable = Player.find(params[:player_id])
     @notes = @notable.notes
   end
 
@@ -11,9 +10,9 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = @notable.notes.new(params[:note_params])
+    @note = @notable.notes.new(note_params)
     if @note.save
-      redirect_to :players, notice: "Comment created."
+      redirect_to :players, notice: "Note created."
     else
       render :new
     end
@@ -24,14 +23,14 @@ class NotesController < ApplicationController
     @notable = @note.notable
       if @note.destroy
         respond_to do |format|
-          format.html { redirect_to @notable, notice: "Comment deleted."  }
+          format.html { redirect_to @notable, notice: "Note deleted."  }
         end
       end
    end
 
   def update
     @note = Note.find(params[:id])
-    @note.update_attributes(params[:note])
+    @note.update(note_params)
     response_to do |format|
       format.html do
         if @note.errors.present?
