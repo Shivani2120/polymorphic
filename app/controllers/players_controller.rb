@@ -6,6 +6,7 @@ class PlayersController < ApplicationController
     @players = Player.all
     respond_to do |format|
       format.html
+      format.json { render json: @players}
       format.pdf do
         render pdf: "Player id: #{@players.count} ", template: "players/index.html.erb"  
       end

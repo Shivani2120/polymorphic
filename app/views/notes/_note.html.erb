@@ -3,7 +3,7 @@
   <% @notable.notes.each do |note| %>
       <%= note.content %>
       <%= link_to "Edit", edit_player_note_path( note) %>
-      <%= link_to "destroy", player_note_path(note), method: :delete %>
+      <%= button_to "destroy", player_note_path(note), method: :delete %>
   <% end %>
 </div>
 
