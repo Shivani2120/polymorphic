@@ -1,0 +1,9 @@
+<%= form_with model: @project do |f| %>
+<b><%= f.label :name %></b>
+<p><%= f.text_field :name %></p>
+
+<b><%= f.label :description %></b>
+<p><%= f.text_area :description %></p>
+
+<%= f.submit %>
+<% end %>

@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     get :rollback
   end
   resources :posts
-  root to: "home#index"
-
+  root to: "projects#index"
+  
+  resources :projects do
+    resources :tasks
+  end
+  
 end
